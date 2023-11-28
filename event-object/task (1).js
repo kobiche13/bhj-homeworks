@@ -4,7 +4,7 @@ let dropDownListItem = Array.from(document.getElementsByClassName('dropdown__ite
 let dropDownLink = Array.from(document.getElementsByClassName('dropdown__link'));
 let checkDropDown = false;
 
-for (let i = 0; i < dropDown.length; i++){
+for (let i = 0; i < dropDown.length ; i++){
     dropDown[i].addEventListener('click', function(event){
         
         if (checkDropDown){
