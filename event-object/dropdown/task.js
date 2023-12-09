@@ -1,29 +1,33 @@
-let dropDown = Array.from(document.getElementsByClassName('dropdown__value'));//должно меняться
-let dropDownList = Array.from(document.getElementsByClassName('dropdown__list'));
-let dropDownListItem = Array.from(document.getElementsByClassName('dropdown__item'));
-let dropDownLink = Array.from(document.getElementsByClassName('dropdown__link'));
 let checkDropDown = false;
+let card = document.querySelector('.card');
 
-for (let i = 0; i < dropDown.length; i++){
-    dropDown[i].addEventListener('click', function(event){
-        
-        if (checkDropDown){
-            dropDownList[i].classList.remove('dropdown__list_active');
+card.addEventListener('click', function(event){   
+    if (event.target.classList.contains('dropdown__value')){    
+        if(checkDropDown){
+            event.target.nextElementSibling.classList.remove('dropdown__list_active');
             checkDropDown = false;
-        } else{
-            dropDownList[i].classList.add('dropdown__list_active');
+        } else {
+            event.target.nextElementSibling.classList.add('dropdown__list_active');
             checkDropDown = true;
-        }  
-    })
+        }   
+    }
+})
 
-    dropDownList[i].addEventListener('click', function(event){
-        if (event.target.className === 'dropdown__link'){
-            dropDown[i].textContent = event.target.textContent ;
-        }
-        dropDownList[i].classList.remove('dropdown__list_active');
-        event.preventDefault(); 
-    })  
-} 
+card.addEventListener('click', function(e){    
+    if(e.target.classList.contains('dropdown__link')){
+        e.preventDefault();
+        e.target.parentElement.parentElement.previousElementSibling.textContent = e.target.textContent ;
+        if(checkDropDown){
+            e.target.parentElement.parentElement.classList.remove('dropdown__list_active');
+            checkDropDown = false;
+        } else {
+            e.target.parentElement.parentElement.classList.add('dropdown__list_active');
+            checkDropDown = true;
+        } 
+    }
+     
+})
+
 
 
 
