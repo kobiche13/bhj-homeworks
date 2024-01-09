@@ -89,3 +89,16 @@ body {
 .product-shadow {
   position: absolute;
 }
+
+.clear__basket{
+  background: green;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.cart{
+  display: none;
+}
