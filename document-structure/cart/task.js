@@ -12,8 +12,7 @@ productCounter.addEventListener('click', function(event) {
         +event.target.previousElementSibling.innerText++;
     } else if (event.target.classList.contains('product__add')) {
         let atr = event.target.closest('.product').getAttribute('data-id'); //при клике получаем номер атрибута
-        let srcImageValue = event.target.closest('.product__controls').previousElementSibling.src; //получаем ссылку на изображение
-        
+        let srcImageValue = event.target.closest('.product__controls').previousElementSibling.src; //получаем ссылку на изображение        
         let counter = +event.target.previousElementSibling.childNodes[3].textContent; // получаем кол-во
         let basket = document.querySelector('.cart__products'); //получаем корзину
         let basketCheck = Array.from(basket.children); //содержимое корзины             
