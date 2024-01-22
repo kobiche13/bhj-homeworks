@@ -4,21 +4,18 @@ const tasksList = document.querySelector('.tasks__list');
 let removeElement;
 const btn = document.querySelector('.tasks__add');
 const form = document.forms[0];
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    if (event.key === 'Enter' && tasksInput.value !== '') {
-        tasksList.insertAdjacentHTML('beforeend', '<div class="task"><div class="task__title">' + tasksInput.value + '</div><a href="#" class="task__remove">&times;</a></div>')
-        tasksInput.value = '';
-    }
-})
+
 btn.addEventListener('click', function(event) {
-    if (tasksInput.value !== '') {
-        tasksList.insertAdjacentHTML('beforeend', '<div class="task"><div class="task__title">' + tasksInput.value + '</div><a href="#" class="task__remove">&times;</a></div>')
+    event.preventDefault();
+    if (tasksInput.value.trim()) {
+        tasksList.insertAdjacentHTML('beforeend', '<div class="task"><div class="task__title">' + tasksInput.value + '</div><a href="#" class="task__remove">&times;</a></div>');
         tasksInput.value = '';
     }
 })
 tasksList.addEventListener('click', function(event) {
     event.preventDefault();
-    removeElement = event.target.closest('.task');
-    removeElement.remove();
+    if(event.target.classList.contains('task__remove')){
+        removeElement = event.target.closest('.task');
+        removeElement.remove();
+    }
 })
