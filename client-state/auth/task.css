@@ -45,3 +45,8 @@
   display: block;
   text-align: center;
 }
+
+.welcome__closeAuth{
+  display: block;
+  margin: 0 auto;
+}
